@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oder24hz - Персональный сайт</title>
   <style>
     html, body {
@@ -11,19 +11,23 @@
       width: 100%;
       height: 100%;
       background: #000;
-      color: #ff4d4d;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
+      position: relative;
+      color: #ff4d4d;
     }
-    #particles-js {
+
+    body::before {
+      content: "";
       position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
       top: 0;
       left: 0;
-      background-color: #000;
+      width: 100%;
+      height: 100%;
+      background: url('2fd5931216085bbf06df9c5fe2817332.gif') center center / cover no-repeat;
+      z-index: -2;
     }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -31,103 +35,86 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      text-shadow: 0 0 3px red, 0 0 5px red;
+      text-shadow: 0 0 2px red, 0 0 4px red;
     }
+
     h1 {
-      font-size: 3rem;
-      color: #ff4d4d;
-      text-shadow: 0 0 5px red, 0 0 10px red;
+      font-size: 4rem;
     }
+
     h2 {
       font-weight: normal;
-      color: #ff4d4d;
-      text-shadow: 0 0 3px red;
     }
-    .info {
+
+    .info, .bio, .personalities, .socials {
       margin-top: 30px;
       font-size: 1.2rem;
     }
+
     .bio {
-      margin-top: 40px;
       font-size: 1rem;
       text-align: left;
       line-height: 1.6;
     }
-    .personalities {
-      margin-top: 20px;
-      font-size: 1rem;
-      color: #ff4d4d;
-    }
-    .socials {
-      margin-top: 40px;
-    }
+
     .socials a {
       display: inline-block;
       margin: 0 10px;
-      color: #ff4d4d;
       text-decoration: none;
       font-weight: bold;
-      text-shadow: 0 0 4px red;
     }
+
     .socials a:hover {
       text-decoration: underline;
+    }
+
+    .pulse-text {
+      display: inline-block;
+      animation: pulse 2s infinite;
+      color: #ff4d4d;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        text-shadow: 0 0 4px red, 0 0 8px red;
+      }
+      50% {
+        text-shadow: 0 0 10px red, 0 0 20px red;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
+  <!-- Автовоспроизведение музыки -->
+  <audio autoplay loop hidden>
+    <source src="real slideshow audio - real.......mp3" type="audio/mpeg" />
+  </audio>
 
   <div class="container">
-    <h1>Oder24hz</h1>
-    <h2>Просто милый парень из России</h2>
+    <img src="7ff26c194c251b51782956299179f025.jpg" alt="SCAM" style="max-width: 100%; height: auto; margin-bottom: 20px; border-radius: 10px;" />
+    <h1><span class="pulse-text">♱ Oder24hz ♱</span></h1>
+    <h2><span class="pulse-text">♱ Просто милый парень из России ♱</span></h2>
 
     <div class="info">
-      <p><strong>Возраст:</strong> 17</p>
-      <p><strong>Местоположение:</strong> Россия</p>
+      <p><span class="pulse-text">♱ Возраст: 17 ♱</span></p>
+      <p><span class="pulse-text">♱ Местоположение: Россия ♱</span></p>
     </div>
 
     <div class="bio">
-      <p>Я молодой парень из России. Люблю сидеть дома, играть в компьютер, увлекаюсь программированием и тюнингом японских машин. У меня три диагноза из психиатрической больницы, полностью забил на школу и сейчас стараюсь идти вперёд сам.</p>
-      <p>Очень благодарен своим друзьям, которые спасли меня от суицида. В данный момент стараюсь развиваться. По параметрам тела я жирный (196 см, 120 кг), хочу создать семью и жить спокойной русской жизнью, разъезжая на 24-й Волге.</p>
+      <p><span class="pulse-text">♱ Я молодой парень из России. Люблю сидеть дома, играть в компьютер, увлекаюсь программированием и тюнингом японских машин. У меня три диагноза из психиатрической больницы, полностью забил на школу и сейчас стараюсь идти вперёд сам. ♱</span></p>
+      <p><span class="pulse-text">♱ Очень благодарен своим друзьям, которые спасли меня от суицида. В данный момент стараюсь развиваться. По параметрам тела я жирный (196 см, 120 кг), хочу создать семью и жить спокойной русской жизнью, разъезжая на 24-й Волге. ♱</span></p>
     </div>
 
     <div class="personalities">
-      <p>#милый парень &nbsp;&nbsp;|&nbsp;&nbsp; Endless Night / Oder24hz</p>
+      <p><span class="pulse-text">♱ #милый парень   |   Endless Night   |   Oder24hz ♱</span></p>
     </div>
 
     <div class="socials">
-      <a href="https://www.twitch.tv/oder24hz" target="_blank">Twitch</a>
-      <a href="https://www.youtube.com/@Oder24hz" target="_blank">YouTube</a>
-      <a href="https://t.me/Oderrrr" target="_blank">Telegram</a>
-      <a href="https://www.tiktok.com/@2011.o" target="_blank">TikTok</a>
+      <a class="pulse-text" href="https://www.twitch.tv/oder24hz" target="_blank">♱ Twitch ♱</a>
+      <a class="pulse-text" href="https://www.youtube.com/@Oder24hz" target="_blank">♱ YouTube ♱</a>
+      <a class="pulse-text" href="https://t.me/Oderrrr" target="_blank">♱ Telegram ♱</a>
+      <a class="pulse-text" href="https://www.tiktok.com/@2011.o" target="_blank">♱ TikTok ♱</a>
     </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: '#ff4d4d' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: '#ff4d4d', opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2, direction: 'none', out_mode: 'out' }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: {
-          onhover: { enable: true, mode: 'grab' },
-          onclick: { enable: true, mode: 'push' }
-        },
-        modes: {
-          grab: { distance: 200, line_linked: { opacity: 0.7 } },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-  </script>
 </body>
 </html>
