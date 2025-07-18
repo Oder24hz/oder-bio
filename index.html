@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oder24hz - Personal Website</title>
+  <title>Oder24hz - Персональный сайт</title>
   <style>
     html, body {
       margin: 0;
@@ -11,7 +11,7 @@
       width: 100%;
       height: 100%;
       background: #000;
-      color: #f5f5f5;
+      color: #ff4d4d;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
     }
@@ -31,14 +31,17 @@
       text-align: center;
       position: relative;
       z-index: 1;
+      text-shadow: 0 0 3px red, 0 0 5px red;
     }
     h1 {
       font-size: 3rem;
-      color: #00ffff;
+      color: #ff4d4d;
+      text-shadow: 0 0 5px red, 0 0 10px red;
     }
     h2 {
       font-weight: normal;
-      color: #aaaaaa;
+      color: #ff4d4d;
+      text-shadow: 0 0 3px red;
     }
     .info {
       margin-top: 30px;
@@ -53,14 +56,7 @@
     .personalities {
       margin-top: 20px;
       font-size: 1rem;
-      color: #ff80bf;
-    }
-    .photo {
-      margin-bottom: 30px;
-    }
-    .photo img {
-      max-width: 100%;
-      border-radius: 12px;
+      color: #ff4d4d;
     }
     .socials {
       margin-top: 40px;
@@ -68,9 +64,10 @@
     .socials a {
       display: inline-block;
       margin: 0 10px;
-      color: #00ffff;
+      color: #ff4d4d;
       text-decoration: none;
       font-weight: bold;
+      text-shadow: 0 0 4px red;
     }
     .socials a:hover {
       text-decoration: underline;
@@ -81,25 +78,21 @@
   <div id="particles-js"></div>
 
   <div class="container">
-    <div class="photo">
-      <img src="photo.jpg" alt="Oder24hz Photo">
-    </div>
-
     <h1>Oder24hz</h1>
-    <h2>Just a sweet guy from Russia</h2>
+    <h2>Просто милый парень из России</h2>
 
     <div class="info">
-      <p><strong>Age:</strong> 17</p>
-      <p><strong>Location:</strong> Russia</p>
+      <p><strong>Возраст:</strong> 17</p>
+      <p><strong>Местоположение:</strong> Россия</p>
     </div>
 
     <div class="bio">
-      <p>I'm a young guy from Russia. I love staying at home, playing computer games, and I'm passionate about programming and tuning Japanese cars. I have been diagnosed with three psychiatric conditions, dropped out of school completely, and now I'm trying to move forward on my own.</p>
-      <p>I'm very grateful to my friends who saved me from suicide. At the moment, I'm doing my best to grow and improve. Physically, I'm quite large (196 cm, 120 kg), and I dream of starting a family and living a peaceful Russian life — cruising in a Volga 24.</p>
+      <p>Я молодой парень из России. Люблю сидеть дома, играть в компьютер, увлекаюсь программированием и тюнингом японских машин. У меня три диагноза из психиатрической больницы, полностью забил на школу и сейчас стараюсь идти вперёд сам.</p>
+      <p>Очень благодарен своим друзьям, которые спасли меня от суицида. В данный момент стараюсь развиваться. По параметрам тела я жирный (196 см, 120 кг), хочу создать семью и жить спокойной русской жизнью, разъезжая на 24-й Волге.</p>
     </div>
 
     <div class="personalities">
-      <p>#милый парень &nbsp;&nbsp;|&nbsp;&nbsp; Endless Night</p>
+      <p>#милый парень &nbsp;&nbsp;|&nbsp;&nbsp; Endless Night / Oder24hz</p>
     </div>
 
     <div class="socials">
@@ -115,11 +108,11 @@
     particlesJS('particles-js', {
       particles: {
         number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: '#00ffff' },
+        color: { value: '#ff4d4d' },
         shape: { type: 'circle' },
         opacity: { value: 0.5, random: true },
         size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: '#00ffff', opacity: 0.4, width: 1 },
+        line_linked: { enable: true, distance: 150, color: '#ff4d4d', opacity: 0.4, width: 1 },
         move: { enable: true, speed: 2, direction: 'none', out_mode: 'out' }
       },
       interactivity: {
