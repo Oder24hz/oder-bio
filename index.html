@@ -9,149 +9,213 @@
       font-family: 'Ebbe';
       src: url('ebbe.ttf') format('truetype');
     }
+
     html, body {
-      margin: 0; padding: 0;
-      width: 100%; min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
       font-family: 'Ebbe', sans-serif;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       color: #000;
       background: #f0f0f0;
     }
+
     .background-animated {
       position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      z-index:-2;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
     }
+
+    /* --- Вариант 1: Animated Gradient --- */
     .gradient-bg {
       background: linear-gradient(-45deg, #ffffff, #cccccc, #eeeeee, #dddddd);
-      background-size:400% 400%;
+      background-size: 400% 400%;
       animation: gradient 12s ease infinite;
-      width:100%; height:100%;
-      position:absolute;
+      width: 100%;
+      height: 100%;
+      position: absolute;
     }
+
     @keyframes gradient {
-      0% { background-position:0% 50%; }
-      50% { background-position:100% 50%; }
-      100% { background-position:0% 50%; }
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
+
+    /* --- Вариант 2: Bubbles --- */
+    .bubbles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .bubbles span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(150, 150, 150, 0.2);
+      animation: rise 15s linear infinite;
+      border-radius: 50%;
+      bottom: -100px;
+    }
+
+    .bubbles span:nth-child(odd) {
+      background: rgba(180, 180, 180, 0.3);
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(0.7);
+        opacity: 0;
+      }
+    }
+
     .container {
-      max-width:800px; margin:0 auto;
-      padding:40px 20px; text-align:center;
-      position:relative;
-      background-color: rgba(255,255,255,0.8);
-      border-radius:12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* сильная тень */
     }
-    h1 { font-size:3.5rem; }
-    h2 { font-size:1.5rem; font-weight:normal; }
+
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: 1.5rem;
+    }
+
     .info, .bio, .personalities, .socials {
-      margin-top:30px; font-size:1.1rem;
+      margin-top: 30px;
+      font-size: 1.1rem;
     }
+
     .bio {
-      text-align:left; line-height:1.6;
+      font-size: 1rem;
+      text-align: left;
+      line-height: 1.6;
     }
+
     .socials a {
-      margin:10px 5px; text-decoration:none;
-      font-weight:bold; color:#000;
+      display: inline-block;
+      margin: 10px 5px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
     }
-    .socials a:hover { text-decoration:underline; }
+
+    .socials a:hover {
+      text-decoration: underline;
+    }
+
     .pulse-text {
-      display:inline-block;
+      display: inline-block;
       animation: pulse 2s infinite;
     }
+
     @keyframes pulse {
-      0%,100% { text-shadow: 0 0 5px #888, 0 0 10px #aaa; }
-      50% { text-shadow: 0 0 15px #777, 0 0 25px #999; }
+      0%, 100% {
+        text-shadow: 0 0 5px #888, 0 0 10px #aaa;
+      }
+      50% {
+        text-shadow: 0 0 15px #777, 0 0 25px #999;
+      }
     }
+
     .socials .pulse-text {
       animation: pulse-fast 1s infinite;
     }
+
     @keyframes pulse-fast {
-      0%,100% { text-shadow: 0 0 5px #888; }
-      50% { text-shadow: 0 0 15px #999; }
+      0%, 100% {
+        text-shadow: 0 0 5px #888;
+      }
+      50% {
+        text-shadow: 0 0 15px #999;
+      }
     }
-    #particles {
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      pointer-events:none;
-      z-index:-1;
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      .container {
+        padding: 20px 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Фон -->
+  <audio autoplay loop hidden>
+    <source src="real slideshow audio - real.......mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Вариант 1: Animated Gradient Background -->
   <div class="background-animated">
     <div class="gradient-bg"></div>
   </div>
-  <canvas id="particles"></canvas>
+
+  <!-- Вариант 2: Bubbles Animation -->
+  <!--
+  <div class="background-animated bubbles">
+    <span style="left: 10%; animation-delay: 0s;"></span>
+    <span style="left: 30%; animation-delay: 2s;"></span>
+    <span style="left: 50%; animation-delay: 4s;"></span>
+    <span style="left: 70%; animation-delay: 1s;"></span>
+    <span style="left: 90%; animation-delay: 3s;"></span>
+    <span style="left: 20%; animation-delay: 5s;"></span>
+  </div>
+  -->
 
   <div class="container">
     <h1><span class="pulse-text">♱ Oder24hz ♱</span></h1>
     <h2><span class="pulse-text">♱ Просто милый парень из России ♱</span></h2>
+
     <div class="info">
       <p><span class="pulse-text">♱ Возраст: 17 ♱</span></p>
       <p><span class="pulse-text">♱ Местоположение: Россия ♱</span></p>
     </div>
+
     <div class="bio">
-      <p>Я молодой парень... (твой текст)</p>
+      <p>Я молодой парень, живу в России. Увлекаюсь машинами и компьютерами, стараюсь копить на машину и права. У меня проблемы с головой — есть три диагноза из психушки. Но на самом деле я добрый, просто мои беды в голове.</p>
+      <p>Многим я делал плохо, многим помогал. Из-за этого я не могу считать себя ни добрым, ни злым — это делает за меня общество. Люди говорят, что я уродец, что я жирный и сильно ранимый, без чувств. Я не понимаю людей.</p>
+      <p><strong>Из плюсов:</strong> я спас четырёх человек от самовыпила, вернул многим чувства к партнёру, помог людям с их внутренними проблемами.</p>
+      <p><strong>Из минусов:</strong> меня многие не понимают, я всё принимаю близко к сердцу. Есть проблемы со здоровьем — с сердцем и лёгкими. В любой момент могу словить инсульт (к счастью, ещё такого не было).</p>
+      <p><strong>Забавный факт:</strong> мне 17 лет, я 196 см ростом и вешу 120 кг (да, я жирный). Мечтаю накопить на машину и работать в такси. :)</p>
     </div>
+
     <div class="personalities">
-      <p><span class="pulse-text">♱ #милый парень | Endless Night | Oder24hz ♱</span></p>
+      <p><span class="pulse-text">♱ #милый парень   |   Endless Night   |   Oder24hz ♱</span></p>
     </div>
+
     <div class="socials">
-      <a class="pulse-text" href="#">♱ Twitch ♱</a>
-      <a class="pulse-text" href="#">♱ YouTube ♱</a>
-      <a class="pulse-text" href="#">♱ Telegram ♱</a>
-      <a class="pulse-text" href="#">♱ TikTok ♱</a>
+      <a class="pulse-text" href="https://www.twitch.tv/oder24hz" target="_blank">♱ Twitch ♱</a>
+      <a class="pulse-text" href="https://www.youtube.com/@Oder24hz" target="_blank">♱ YouTube ♱</a>
+      <a class="pulse-text" href="https://t.me/Oderrrr" target="_blank">♱ Telegram ♱</a>
+      <a class="pulse-text" href="https://www.tiktok.com/@2011.o" target="_blank">♱ TikTok ♱</a>
     </div>
   </div>
-
-  <script>
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-    class P {
-      constructor() {
-        this.x = Math.random()*canvas.width;
-        this.y = Math.random()*canvas.height;
-        this.size = Math.random()*3 + 1;
-        this.speedX = (Math.random()-0.5)*0.5;
-        this.speedY = (Math.random()-0.5)*0.5;
-        this.opacity = Math.random()*0.3 + 0.1;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if(this.x<0) this.x=canvas.width;
-        if(this.x>canvas.width) this.x=0;
-        if(this.y<0) this.y=canvas.height;
-        if(this.y>canvas.height) this.y=0;
-      }
-      draw() {
-        ctx.fillStyle = `rgba(0,0,0,${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-        ctx.fill();
-      }
-    }
-    function init() {
-      particles = [];
-      for(let i=0; i<150; i++) particles.push(new P());
-    }
-    function anim() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      particles.forEach(p=>{p.update(); p.draw()});
-      requestAnimationFrame(anim);
-    }
-    init(); anim();
-  </script>
 </body>
 </html>
