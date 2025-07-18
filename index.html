@@ -16,7 +16,6 @@
       width: 100%;
       min-height: 100vh;
       font-family: 'Ebbe', sans-serif;
-      overflow: hidden;
       color: #000;
       background: #e0e0e0;
     }
@@ -61,17 +60,18 @@
       background-color: rgba(255, 255, 255, 0.9);
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 1;
     }
 
     h1 {
       font-size: 3.5rem;
-      text-shadow: 0 0 15px #999, 0 0 30px #888;
+      text-shadow: 0 0 25px #111, 0 0 50px #000;
     }
 
     h2 {
       font-weight: normal;
       font-size: 1.5rem;
-      text-shadow: 0 0 10px #aaa;
+      text-shadow: 0 0 25px #111, 0 0 50px #000;
     }
 
     .info, .bio, .personalities, .socials {
@@ -104,10 +104,10 @@
 
     @keyframes pulse {
       0%, 100% {
-        text-shadow: 0 0 5px #888, 0 0 10px #aaa;
+        text-shadow: 0 0 5px #555, 0 0 10px #444;
       }
       50% {
-        text-shadow: 0 0 15px #777, 0 0 25px #999;
+        text-shadow: 0 0 15px #333, 0 0 25px #222;
       }
     }
 
@@ -117,10 +117,10 @@
 
     @keyframes pulse-fast {
       0%, 100% {
-        text-shadow: 0 0 5px #888;
+        text-shadow: 0 0 5px #555;
       }
       50% {
-        text-shadow: 0 0 15px #999;
+        text-shadow: 0 0 15px #333;
       }
     }
 
@@ -205,7 +205,12 @@
       ctx.clearRect(0, 0, w, h);
       for (let p of particles) {
         ctx.fillStyle = `rgba(0,0,0,${p.alpha})`;
-        ctx.fillRect(p.x, p.y, p.width, p.height);
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p.x + p.width, p.y + p.height);
+        ctx.lineTo(p.x - p.width, p.y + p.height);
+        ctx.closePath();
+        ctx.fill();
         p.x += p.dx;
         p.y += p.dy;
 
