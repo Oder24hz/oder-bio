@@ -5,27 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oder24hz - Персональный сайт</title>
   <style>
+    @font-face {
+      font-family: 'Ebbe';
+      src: url('ebbe.ttf') format('truetype');
+    }
+
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
       background: #000;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Ebbe', sans-serif;
       overflow-x: hidden;
-      position: relative;
       color: #ff4d4d;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('2fd5931216085bbf06df9c5fe2817332.gif') center center / cover no-repeat;
-      z-index: -2;
     }
 
     .container {
@@ -34,8 +27,6 @@
       padding: 40px 20px;
       text-align: center;
       position: relative;
-      z-index: 1;
-      text-shadow: 0 0 2px red, 0 0 4px red;
     }
 
     h1 {
@@ -62,6 +53,7 @@
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+      color: #ff4d4d;
     }
 
     .socials a:hover {
@@ -71,12 +63,11 @@
     .pulse-text {
       display: inline-block;
       animation: pulse 2s infinite;
-      color: #ff4d4d;
     }
 
     @keyframes pulse {
       0%, 100% {
-        text-shadow: 0 0 4px red, 0 0 8px red;
+        text-shadow: none;
       }
       50% {
         text-shadow: 0 0 10px red, 0 0 20px red;
@@ -91,7 +82,6 @@
   </audio>
 
   <div class="container">
-    <img src="7ff26c194c251b51782956299179f025.jpg" alt="SCAM" style="max-width: 100%; height: auto; margin-bottom: 20px; border-radius: 10px;" />
     <h1><span class="pulse-text">♱ Oder24hz ♱</span></h1>
     <h2><span class="pulse-text">♱ Просто милый парень из России ♱</span></h2>
 
@@ -101,8 +91,8 @@
     </div>
 
     <div class="bio">
-      <p><span class="pulse-text">♱ Я молодой парень из России. Люблю сидеть дома, играть в компьютер, увлекаюсь программированием и тюнингом японских машин. У меня три диагноза из психиатрической больницы, полностью забил на школу и сейчас стараюсь идти вперёд сам. ♱</span></p>
-      <p><span class="pulse-text">♱ Очень благодарен своим друзьям, которые спасли меня от суицида. В данный момент стараюсь развиваться. По параметрам тела я жирный (196 см, 120 кг), хочу создать семью и жить спокойной русской жизнью, разъезжая на 24-й Волге. ♱</span></p>
+      <p>Я молодой парень из России. Люблю сидеть дома, играть в компьютер, увлекаюсь программированием и тюнингом японских машин. У меня три диагноза из психиатрической больницы, полностью забил на школу и сейчас стараюсь идти вперёд сам.</p>
+      <p>Очень благодарен своим друзьям, которые спасли меня от суицида. В данный момент стараюсь развиваться. По параметрам тела я жирный (196 см, 120 кг), хочу создать семью и жить спокойной русской жизнью, разъезжая на 24-й Волге.</p>
     </div>
 
     <div class="personalities">
