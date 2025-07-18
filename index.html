@@ -7,7 +7,7 @@
   <style>
     @font-face {
       font-family: 'Ebbe';
-      src: url('ebbe.ttf') format('truetype');
+      src: url('ofont.ru_Ebbe.ttf') format('truetype');
     }
 
     html, body {
@@ -17,8 +17,17 @@
       height: 100%;
       background: #000;
       font-family: 'Ebbe', sans-serif;
-      overflow-x: hidden;
+      overflow: hidden;
       color: #ff4d4d;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     .container {
@@ -76,7 +85,8 @@
   </style>
 </head>
 <body>
-  <!-- Автовоспроизведение музыки -->
+  <div id="particles-js"></div>
+
   <audio autoplay loop hidden>
     <source src="real slideshow audio - real.......mp3" type="audio/mpeg" />
   </audio>
@@ -91,8 +101,11 @@
     </div>
 
     <div class="bio">
-      <p>Я молодой парень из России. Люблю сидеть дома, играть в компьютер, увлекаюсь программированием и тюнингом японских машин. У меня три диагноза из психиатрической больницы, полностью забил на школу и сейчас стараюсь идти вперёд сам.</p>
-      <p>Очень благодарен своим друзьям, которые спасли меня от суицида. В данный момент стараюсь развиваться. По параметрам тела я жирный (196 см, 120 кг), хочу создать семью и жить спокойной русской жизнью, разъезжая на 24-й Волге.</p>
+      <p>Я молодой парень, живу в России. Увлекаюсь машинами и компьютерами, стараюсь копить на машину и права. У меня проблемы с головой — есть три диагноза из психушки. Но на самом деле я добрый, просто мои беды в голове.</p>
+      <p>Многим я делал плохо, многим помогал. Из-за этого я не могу считать себя ни добрым, ни злым — это делает за меня общество. Люди говорят, что я уродец, что я жирный и сильно ранимый, без чувств. Я не понимаю людей.</p>
+      <p><strong>Из плюсов:</strong> я спас четырёх человек от самовыпила, вернул многим чувства к партнёру, помог людям с их внутренними проблемами.</p>
+      <p><strong>Из минусов:</strong> меня многие не понимают, я всё принимаю близко к сердцу. Есть проблемы со здоровьем — с сердцем и лёгкими. В любой момент могу словить инсульт (к счастью, ещё такого не было).</p>
+      <p><strong>Забавный факт:</strong> мне 17 лет, я 196 см ростом и вешу 120 кг (да, я жирный). Мечтаю накопить на машину и работать в такси. :)</p>
     </div>
 
     <div class="personalities">
@@ -106,5 +119,32 @@
       <a class="pulse-text" href="https://www.tiktok.com/@2011.o" target="_blank">♱ TikTok ♱</a>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: '#ff4d4d' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#ff4d4d', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', out_mode: 'out' }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: true, mode: 'push' }
+        },
+        modes: {
+          grab: { distance: 200, line_linked: { opacity: 0.7 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
